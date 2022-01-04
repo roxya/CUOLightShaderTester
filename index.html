@@ -3,7 +3,21 @@
 
 
 <head>
+<style type="text/css">
 
+body {
+	background-color: #333;
+	font-family: arial, sans-serif;
+}
+
+label {
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+</style>
 </head>
 
 
@@ -54,11 +68,17 @@
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.03226,0.16129,0.32258,0.48387,0.64516,0.80645,0.96774,0.96774,0.58065,0.58065,0.58065,0.58065,0.58065,0.58065,0.58065]
 	];
 
-	console.log(curves);
-
 	var img = new Image();
 	img.src = './lights/Light-1.png';
 	img.crossOrigin = "Anonymous";
+
+	var img2 = new Image();
+	img2.src = './lights/Light-0.png';
+	img2.crossOrigin = "Anonymous";
+
+	var img3 = new Image();
+	img3.src = './lights/Light-8.png';
+	img3.crossOrigin = "Anonymous";
 
 	var canvas = document.getElementById('light1');
 	var ctx = canvas.getContext('2d');
@@ -68,12 +88,16 @@
 	//ctx.globalCompositeOperation = 'lighter';
 
 	img.onload = function() {
-		ctx.drawImage(img, 0, 0);
-		recolor();
+		ctx.drawImage(img, 200, 0);
+		ctx.drawImage(img2, 0, 0);
+		ctx.drawImage(img3, 0, 150);
+		//recolor();
 	}
 
 	var original = function() {
-		ctx.drawImage(img, 0, 0);
+		ctx.drawImage(img, 200, 0);
+		ctx.drawImage(img2, 0, 0);
+		ctx.drawImage(img3, 0, 150);
 	}
 
 	var recolor = function() {
@@ -84,15 +108,10 @@
 		const g = parseInt(color_hex.substr(3,2), 16)
 		const b = parseInt(color_hex.substr(5,2), 16)
 
-		console.log(color_hex, r, g, b);
-
 		const curver = document.getElementById('curver'); 
 		const curveg = document.getElementById('curveg'); 
 		const curveb = document.getElementById('curveb');
 
-		
-
-		//ctx.drawImage(img, 0, 0);
 		const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		const data = imageData.data;
 
