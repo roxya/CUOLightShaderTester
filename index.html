@@ -89,9 +89,14 @@ label {
 
 	img.onload = function() {
 		ctx.drawImage(img, 200, 0);
+	}
+
+	img2.onload = function() {
 		ctx.drawImage(img2, 0, 0);
+	}
+
+	img3.onload = function() {
 		ctx.drawImage(img3, 0, 150);
-		//recolor();
 	}
 
 	var original = function() {
@@ -151,6 +156,8 @@ label {
 	    recolor();
 	  });
 	}
+
+
 
 </script>
 
